@@ -1,5 +1,5 @@
 # Breast Cancer Classification — ML Model Comparison & Streamlit App
-
+# Niraj Sonawane (2025DA04064)
 ## a. Problem Statement
 
 Breast cancer diagnosis relies on interpreting features extracted from digitized
@@ -80,24 +80,9 @@ project-folder/
 │   └-- saved_models/        # fitted model + scaler artifacts (.joblib)
 ```
 
-## How to Run Locally
-
-```bash
-pip install -r requirements.txt
-python model/train_models.py   # optional — saved_models/ already included
-streamlit run app.py
-```
 
 ## Deployment (Streamlit Community Cloud)
-
-1. Push this repo to GitHub (include `model/saved_models/*.joblib` so the app
-   doesn't need to retrain on startup).
-2. Go to https://streamlit.io/cloud and sign in with GitHub.
-3. Click **New app** → select this repository → branch `main` → main file
-   `app.py` → **Deploy**.
-4. Once deployed, the app URL is your **Live Streamlit App Link**.
-
-> **TODO:** `Live Streamlit App Link: https://<your-app>.streamlit.app`
+`Live Streamlit App Link:[https://ml-assignment-2-breast-cancer-classification-bits.streamlit.app/]`
 
 ## Streamlit App Features
 
