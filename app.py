@@ -1,5 +1,7 @@
 """
-Streamlit app for the ML Assignment 2 submission.
+Streamlit app for the ML Assignment 2 submission 
+Student ID - 2025DA04064
+Student Name - Niraj Sonawane
 
 Features:
   a. CSV upload of test data
@@ -85,7 +87,7 @@ uploaded_file = st.sidebar.file_uploader(
     "and a 'target' column (0 = malignant, 1 = benign).",
     type=["csv"],
 )
-use_default = st.sidebar.checkbox("Use bundled sample test_data.csv", value=uploaded_file is None)
+use_default = st.sidebar.checkbox("Use sample test_data.csv", value=uploaded_file is None)
 
 st.sidebar.subheader("2. Model")
 selected_model_name = st.sidebar.selectbox("Choose a classification model", list(models.keys()))
@@ -111,7 +113,7 @@ elif uploaded_file is not None and use_default:
     st.sidebar.info("Using uploaded file (checkbox override).")
 else:
     df = load_default_test_data()
-    st.sidebar.info("Using bundled sample test_data.csv")
+    st.sidebar.info("Using sample test_data.csv")
 
 missing_cols = [c for c in feature_names if c not in df.columns]
 if missing_cols:
@@ -237,5 +239,5 @@ if has_target:
 
 st.markdown("---")
 st.caption(
-    "Built for ML Assignment 2 — Streamlit app deployed on Streamlit Community Cloud."
+    "Built for ML Assignment 2 by Niraj Sonawane (2025DA04064) — Streamlit app deployed on Streamlit Community Cloud."
 )
