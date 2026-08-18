@@ -32,7 +32,7 @@ application so predictions and evaluation metrics can be explored on demand.
 
 ## c. GitHub Repository Link
 
-> `https://github.com/2025DA04064/ML-Assignment-2/settings`
+> `https://github.com/2025DA04064/ML-Assignment-2`
 
 ## d. Models Used as suggested in the pdf
 
