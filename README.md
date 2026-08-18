@@ -1,5 +1,6 @@
 # Breast Cancer Classification — ML Model Comparison & Streamlit App
-# Niraj Sonawane (2025DA04064)
+# Student name - Niraj Sonawane (2025DA04064)
+# ML Assignment - 2
 ## a. Problem Statement
 
 Breast cancer diagnosis relies on interpreting features extracted from digitized
@@ -31,10 +32,9 @@ application so predictions and evaluation metrics can be explored on demand.
 
 ## c. GitHub Repository Link
 
-> **TODO:** Replace with your actual GitHub repo URL after you push this project,
-> e.g. `https://github.com/<your-username>/<repo-name>`
+> `https://github.com/2025DA04064/ML-Assignment-2/settings`
 
-## d. Models Used
+## d. Models Used as suggested in the pdf
 
 All 5 models below were trained on the **same** dataset and train/test split.
 Logistic Regression and kNN were trained on `StandardScaler`-scaled features
@@ -52,8 +52,6 @@ need scaling).
 | Naive Bayes                 | 0.9371   | 0.9893 | 0.9263    | 0.9778 | 0.9514 | 0.8650 |
 | Random Forest (Ensemble)    | 0.9580   | 0.9949 | 0.9565    | 0.9778 | 0.9670 | 0.9098 |
 
-*(Regenerate this table any time by re-running `python model/train_models.py`,
-which writes fresh numbers to `model/metrics.csv`.)*
 
 ### Observations
 
@@ -62,9 +60,9 @@ which writes fresh numbers to `model/metrics.csv`.)*
 | Logistic Regression        | Best all-round performer here — the classes are close to linearly separable in this feature space, so a linear decision boundary on scaled features fits very well. Highest accuracy, F1, and MCC of all 5 models. |
 | Decision Tree               | Weakest of the 5. A single unpruned tree overfits the training split and doesn't generalize as smoothly as the ensemble/linear methods — visible in the noticeably lower AUC. |
 | kNN                         | Very strong, and achieved perfect recall (caught every malignant/benign case correctly on the positive class) — but that can come at the cost of borderline points near class boundaries being sensitive to the choice of *k* and scaling. |
-| Naive Bayes                 | Solid AUC despite the independence assumption between features clearly not holding for correlated measurements like radius/perimeter/area — but its accuracy and precision trail the top models since that assumption still costs it at the decision boundary. |
-| Random Forest (Ensemble)    | Consistently strong and stable — bagging many trees fixes most of the single Decision Tree's overfitting, giving the 2nd-highest AUC while staying robust without needing feature scaling. |
-| **Overall Winner for your dataset?** | **Logistic Regression** — highest Accuracy, Precision, Recall, F1, and MCC. Random Forest is the runner-up and arguably the safer choice on unseen, noisier real-world data since it doesn't rely on a linear-separability assumption. |
+| Naive Bayes                 | Solid AUC despite the independent assumption between features clearly not holding for correlated measurements like radius/perimeter/area — but its accuracy and precision trail the top models since that assumption still costs it at the decision boundary. |
+| Random Forest (Ensemble)    | Consistently strong and stable — Bringing many trees fixes most of the single Decision Tree's overfitting, giving the 2nd-highest AUC while staying robust without needing feature scaling. |
+| **Overall Winner** | **Logistic Regression** — Since it has the highest Accuracy, Precision, Recall, F1, and MCC. Random Forest is the runner-up and potentially the safer choice on unseen, noisier real-world data since it doesn't rely on a linear-separability assumption. |
 
 ## Project Structure
 
@@ -88,8 +86,8 @@ project-folder/
 
 - **Dataset upload (CSV):** Upload your own test CSV (must contain the 30
   feature columns; an optional `target` column enables full evaluation).
-- **Model selection dropdown:** Switch between all 5 trained classifiers.
+- **Model selection dropdown:** Switch between all 5 trained classifiers with the help of toggle on the right.
 - **Evaluation metrics display:** Accuracy, AUC, Precision, Recall, F1, MCC
   computed live on whichever data is loaded.
-- **Confusion matrix & classification report:** Rendered for the selected
+- **Confusion matrix & classification report:** Computed for the selected
   model, plus a side-by-side comparison table across all 5 models.
