@@ -1,6 +1,8 @@
 """
-train_models.py
+fine name - train_models.py
 ----------------
+Student name  - Niraj Sonawane (2025DA04064)
+ML Assignment - 2
 Trains 5 classification models on the Breast Cancer Wisconsin (Diagnostic)
 dataset, evaluates them, saves the fitted models + scaler to disk, and
 writes out:
@@ -55,7 +57,7 @@ X_train, X_test, y_train, y_test = train_test_split(
 )
 
 # ---------------------------------------------------------------------------
-# 2. Scale features (helps Logistic Regression / kNN especially)
+# 2. Scale features (helps Logistic Regression / kNN )
 # ---------------------------------------------------------------------------
 scaler = StandardScaler()
 X_train_scaled = scaler.fit_transform(X_train)
@@ -109,22 +111,22 @@ for name, model in models.items():
     }
     results.append(metrics)
 
-    # Save each fitted model
+    # Saving each fitted model
     safe_name = name.lower().replace(" ", "_").replace("(", "").replace(")", "")
     joblib.dump(model, os.path.join(HERE, "saved_models", f"{safe_name}.joblib"))
     print(f"Trained {name}: acc={metrics['Accuracy']:.4f} auc={metrics['AUC']:.4f}")
 
-# Save the scaler too (needed at inference time for LR / kNN)
+# Saving the scaler too (needed at inference time for LR / kNN)
 joblib.dump(scaler, os.path.join(HERE, "saved_models", "scaler.joblib"))
 
-# Save feature/target metadata so app.py doesn't need to touch sklearn.datasets
+# Saving feature/target metadata so app.py doesn't need to touch sklearn.datasets
 meta = {"feature_names": feature_names, "target_names": target_names,
         "scaled_models": list(SCALED_MODELS)}
 with open(os.path.join(HERE, "saved_models", "meta.json"), "w") as f:
     json.dump(meta, f, indent=2)
 
 # ---------------------------------------------------------------------------
-# 5. Save comparison table
+# 5. Saving comparison table here in below code
 # ---------------------------------------------------------------------------
 metrics_df = pd.DataFrame(results)
 metrics_df.to_csv(os.path.join(HERE, "metrics.csv"), index=False)
